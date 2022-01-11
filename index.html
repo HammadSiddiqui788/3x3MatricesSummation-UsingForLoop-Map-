@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Matrix 1</h1>
+        <div>
+        <input type="number" id="r1c1">
+        <input type="number" id="r1c2">
+        <input type="number" id="r1c3">
+        </div>
+        <div>
+            <input type="number" id="r2c1">
+            <input type="number" id="r2c2">
+            <input type="number" id="r2c3">
+        </div>
+        <div>
+            <input type="number" id="r3c1">
+            <input type="number" id="r3c2">
+            <input type="number" id="r3c3">
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <h1>Matrix 2</h1>
+        <div>
+        <input type="number" id="mr1c1">
+        <input type="number" id="mr1c2">
+        <input type="number" id="mr1c3">
+        </div>
+        <div>
+            <input type="number" id="mr2c1">
+            <input type="number" id="mr2c2">
+            <input type="number" id="mr2c3">
+        </div>
+        <div>
+            <input type="number" id="mr3c1">
+            <input type="number" id="mr3c2">
+            <input type="number" id="mr3c3">
+        </div>
+    </div>
+            <div style="text-align: center;">
+                <button onclick="Add()" style="margin: 50px;">Calculate Sum (Using for loop)</button>
+            <button onclick="sum()" style="margin: 50px;">Calculate Sum (Using map)</button>
+        </div>
+        </div>
+    <div style="text-align: center;">
+        <h2 id="result" style="margin-left: 10px;"></h2>
+    </div>
+   
+</body>
+
+<script>
+
+function Add() {
+    var matrix1 = [ [],[],[] ];
+    matrix1[0][0] = document.getElementById("r1c1").value;
+    matrix1[0][1] = document.getElementById("r1c2").value;
+    matrix1[0][2] = document.getElementById("r1c3").value;
+    matrix1[1][0] = document.getElementById("r2c1").value;
+    matrix1[1][1] = document.getElementById("r2c2").value;
+    matrix1[1][2] = document.getElementById("r2c3").value;
+    matrix1[2][0] = document.getElementById("r3c1").value;
+    matrix1[2][1] = document.getElementById("r3c2").value;
+    matrix1[2][2] = document.getElementById("r3c3").value;
+    console.log(matrix1);
+
+    var matrix2 = [ [],[],[] ];
+    matrix2[0][0] = document.getElementById("mr1c1").value;
+    matrix2[0][1] = document.getElementById("mr1c2").value;
+    matrix2[0][2] = document.getElementById("mr1c3").value;
+    matrix2[1][0] = document.getElementById("mr2c1").value;
+    matrix2[1][1] = document.getElementById("mr2c2").value;
+    matrix2[1][2] = document.getElementById("mr2c3").value;
+    matrix2[2][0] = document.getElementById("mr3c1").value;
+    matrix2[2][1] = document.getElementById("mr3c2").value;
+    matrix2[2][2] = document.getElementById("mr3c3").value;
+    console.log(matrix2);
+
+    var result = [ [],[],[] ];
+
+    for (let i = 0; i<3;i++){
+        for (let j=0; j<3;j++) {
+          result[i][j] = +matrix1[i][j] + +matrix2[i][j];
+          document.getElementById("result").innerText += result[i][j] + ", ";
+        }
+        document.getElementById("result").innerText +=`\n`;
+    }
+    console.log(result);
+}
+
+function sum() {
+    var matrix1 = [ [],[],[] ];
+    matrix1[0][0] = document.getElementById("r1c1").value;
+    matrix1[0][1] = document.getElementById("r1c2").value;
+    matrix1[0][2] = document.getElementById("r2c1").value;
+    matrix1[1][0] = document.getElementById("r2c2").value;
+    matrix1[1][1] = document.getElementById("r2c2").value;
+    matrix1[1][2] = document.getElementById("r2c2").value;
+    matrix1[2][1] = document.getElementById("r2c2").value;
+    matrix1[2][2] = document.getElementById("r2c2").value;
+    matrix1[2][3] = document.getElementById("r2c2").value;
+    console.log(matrix1);
+
+    var matrix2 = [ [],[],[] ];
+    matrix2[0][0] = document.getElementById("mr1c1").value;
+    matrix2[0][1] = document.getElementById("mr1c2").value;
+    matrix2[0][2] = document.getElementById("mr2c1").value;
+    matrix2[1][0] = document.getElementById("mr2c2").value;
+    matrix2[1][1] = document.getElementById("mr2c2").value;
+    matrix2[1][2] = document.getElementById("mr2c2").value;
+    matrix2[2][1] = document.getElementById("mr2c2").value;
+    matrix2[2][2] = document.getElementById("mr2c2").value;
+    matrix2[2][3] = document.getElementById("mr2c2").value;
+    console.log(matrix2);
+var result = [ [],[],[] ];
+matrix1.map((num,i) => {
+num.map((num2,j) => {
+    result[i][j] = +matrix1[i][j] + +matrix2[i][j];
+    document.getElementById("result").innerText += result[i][j] + ", ";
+});
+document.getElementById("result").innerText+= `\n`;
+});
+}
+
+
+</script>
+</html>
